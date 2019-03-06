@@ -1,9 +1,8 @@
 //todo: type check
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import './UploadPage.css'
 import axios from 'axios';
-import CircularProgress from '@material-ui/core/CircularProgress';
+// import CircularProgress from '@material-ui/core/CircularProgress';
 import { FilePond, registerPlugin } from 'react-filepond';
 import './filepond.min.css';
 import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
@@ -130,8 +129,8 @@ class UploadPage extends React.Component {
         // allowFileSizeValidation = {true}
         // maxFileSize = '1536KB'
         allowImageResize = {true}
-        imageResizeTargetHeight = {1184}
-        imageResizeTargetWidth = {832}
+        imageResizeTargetHeight = {456}
+        imageResizeTargetWidth = {532}
         imageResizeMode = {'contain'}
         // imageResizeUpscale = {false}
         server={

@@ -3,7 +3,7 @@ import SimpleSlider from './SimpleSlider';
 import './EditPage.css';
 import Button from '@material-ui/core/Button'
 import TabContainer from './TabContainer'
-import CircularProgress from '@material-ui/core/CircularProgress';
+// import CircularProgress from '@material-ui/core/CircularProgress';
 // const optionsForChange = ['Contrast', 'Brightness','Threshold']
 
 
