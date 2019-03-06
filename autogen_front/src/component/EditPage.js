@@ -124,7 +124,7 @@ this.props.changeValue(2)
 <div className='place-holder'></div>
 <SimpleSlider  min={-100} max={100} text="Contrast:" value={this.state.contrast} setter={this.contrast_setter} />
 <SimpleSlider  min={-100} max={100} text="Brightness:" value={this.state.brightness} setter={this.brightness_setter}  />
-<SimpleSlider min={0} max={100} text="Threshold:" value={this.state.threshold} setter={this.threshold_setter}/>
+{/* <SimpleSlider min={0} max={100} text="Threshold:" value={this.state.threshold} setter={this.threshold_setter}/> */}
 <Button variant="contained" color="secondary" className='button' onClick={(e)=>{
 
   this.updatephoto()
