@@ -129,8 +129,9 @@ class UploadPage extends React.Component {
         // allowFileSizeValidation = {true}
         // maxFileSize = '1536KB'
         allowImageResize = {true}
-        imageResizeTargetHeight = {456}
-        imageResizeTargetWidth = {532}
+        //Change this
+        imageResizeTargetHeight = {window.target_height*3}
+        imageResizeTargetWidth = {window.target_width*3}
         imageResizeMode = {'contain'}
         // imageResizeUpscale = {false}
         server={
@@ -140,7 +141,9 @@ class UploadPage extends React.Component {
                   
                   const formData = new FormData()
                   formData.append('photo', file, file.name)
-
+                  formData.append('width', window.target_width)
+                  formData.append('height', window.target_height)
+                  formData.append('widthheightratio', window.target_ratio)
                   // aborting the request
                   const CancelToken = axios.CancelToken
                   const source = CancelToken.source()

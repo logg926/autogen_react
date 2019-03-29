@@ -78,6 +78,9 @@ this.props.changeValue(2)
         datae.append('contrast', this.state.contrast.toString())
         datae.append('brightness', this.state.brightness.toString())
         datae.append('threshold', this.state.threshold.toString())
+        datae.append('width', window.target_width)
+        datae.append('height', window.target_height)
+        datae.append('widthheightratio', window.target_ratio)
       let theLink = this.props.link+'/'+this.props.id
       // dont change the empty link below
       let theURL = ""
