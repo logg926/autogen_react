@@ -79,7 +79,9 @@ class Window extends React.Component {
                     >
                         <Tab label="Upload" />
                         <Tab label="Modify" disabled={!this.state.url} />
-                        <Tab label="Export" disabled={!this.state.url||!this.state.newid}/>
+                        <Tab label="Export" 
+                        // disabled={!this.state.url||!this.state.newid}
+                        />
                         
                     </Tabs>
                 </AppBar>
