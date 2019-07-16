@@ -45,6 +45,31 @@ class ConfirmPage extends Component {
   
   handleSubmit(event){
     // this.state.value
+
+    //set loading
+    const datae = new FormData();
+  datae.append('newid', this.props.exportCode)
+  datae.append('email', this.state.value)
+  let theLink = this.props.link+'/'+this.props.id
+  // let theURL = ""
+  fetch(theLink,{
+    method: "POST",
+    body: datae
+}).then(function(response) {
+    return response.json();
+  })
+  .then((myJson)=> {
+    this.props.setFinishExporting()
+  }).catch(function (error) {
+        // handle error
+        console.log(error);
+
+      this.props.changeValue(1)
+    this.props.setFinishExporting()
+      })
+
+      this.props.setExporting()
+      this.props.changeValue(3)
     
   }
   handleChange(event) {
@@ -89,7 +114,7 @@ class ConfirmPage extends Component {
         required
         type="email"
 
-        value={this.state.email} 
+        value={this.state.value} 
         onChange={this.handleChange}
         
       >

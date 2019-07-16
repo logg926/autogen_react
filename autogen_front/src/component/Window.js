@@ -7,6 +7,7 @@ import Tab from '@material-ui/core/Tab';
 import UploadPage from './UploadPage'
 import EditPage from './EditPage'
 import ConfirmPage from './ConfirmPage'
+import ThankyouPage from './ThankyouPage'
 import "./Window.css";
 const styles = theme => ({
     root: {
@@ -80,7 +81,10 @@ class Window extends React.Component {
                         <Tab label="Upload" />
                         <Tab label="Modify" disabled={!this.state.url} />
                         <Tab label="Export" 
-                        // disabled={!this.state.url||!this.state.newid}
+                        disabled={!this.state.url||!this.state.newid}
+                        />
+                        <Tab label="Done" 
+                        disabled={value!==3}
                         />
                         
                     </Tabs>
@@ -120,7 +124,19 @@ class Window extends React.Component {
                     setExporting={()=>{this.setState({exporting: true})}}
                     setFinishExporting={()=>{this.setState({exporting: false})}}
                 />}
-                {value === 2 && <ConfirmPage link={link} exportCode ={this.state.exportCode}/>}
+                {value === 2 && <ConfirmPage 
+                link={link} 
+                exportCode ={this.state.exportCode}
+                id={this.state.id}
+                setExporting={()=>{this.setState({exporting: true})}}
+                setFinishExporting={()=>{this.setState({exporting: false})}}
+                changeValue={(value)=>{this.setState({value})}} 
+                />}
+
+                {value === 3 && <ThankyouPage loading={this.state.exporting}
+                />}
+
+                
                 </div>
                     
                     

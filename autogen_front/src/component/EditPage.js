@@ -28,25 +28,30 @@ class EditPage extends React.Component {
 
   exportPhoto=(e)=>{
   // fetch newid
-  const datae = new FormData();
-  datae.append('newid', this.props.newid)
-  let theLink = this.props.link+'/'+this.props.id
-  let theURL = ""
-  fetch(theLink,{
-    method: "POST",
-    body: datae
-}).then(function(response) {
-    return response.json();
-  })
-  .then((myJson)=> {
-    this.props.setExportCode(myJson.hashedid)
-    this.props.setFinishExporting()
-  }).catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      this.props.setExporting()
+//   const datae = new FormData();
+//   datae.append('newid', this.props.newid)
+//   datae.append('email', "example.com@gmail.com")
+//   let theLink = this.props.link+'/'+this.props.id
+//   // let theURL = ""
+//   fetch(theLink,{
+//     method: "POST",
+//     body: datae
+// }).then(function(response) {
+//     return response.json();
+//   })
+//   .then((myJson)=> {
+//     this.props.setExportCode(myJson.hashedid)
+//     this.props.setFinishExporting()
+//   }).catch(function (error) {
+//         // handle error
+//         console.log(error);
+//       })
+
+// this.props.setExporting()
 this.props.changeValue(2)
+this.props.setExportCode(this.props.newid)
+// this.props.setFinishExporting()
+  
 
 }
     contrast_setter=(event,value)=>{
@@ -98,9 +103,10 @@ this.props.changeValue(2)
       }).catch(function (error) {
             // handle error
             console.log(error);
+          this.props.setFinishLoading()
           })
           console.log(theURL)
-          this.props.setFinishLoading()
+          // this.props.setFinishLoading()
     }
     
       handleContrastChange = (event, contrast) => {
