@@ -138,7 +138,7 @@ class UploadPage extends React.Component {
           {
               timeout: 99999,
               process: (fieldName, file, metadata, load, error, progress, abort) => {
-                  
+                  console.log("hi")
                   const formData = new FormData()
                   formData.append('photo', file, file.name)
                   formData.append('width', window.target_width)
@@ -149,42 +149,47 @@ class UploadPage extends React.Component {
                   const source = CancelToken.source()
                   let theURL = ""
 
-                  axios({
-                      method: 'POST',
-                      url: this.props.link,
-                      data: formData,
-                      cancelToken: source.token,
-                      onUploadProgress: (e) => {
-                          // updating progress indicator
-                          progress(e.lengthComputable, e.loaded, e.total)
-                      }
-                  }).then(response => {
-                      // passing the file id to FilePond
-                      // load(response.file)
-                        return response.data
-                  }).then((myJson) => {
-                    theURL = this.props.link + myJson.url
-                    this.props.setId(myJson.id)
+                  // this.props.setId(myJson.id)
                     this.props.change(theURL)
                     this.props.finishLoading()
-                    this.props.setNewId(myJson.newid)
+                    // this.props.setNewId(myJson.newid)
                     this.props.changeValue(1)
+                  // axios({
+                  //     method: 'POST',
+                  //     url: this.props.link,
+                  //     data: formData,
+                  //     cancelToken: source.token,
+                  //     onUploadProgress: (e) => {
+                  //         // updating progress indicator
+                  //         progress(e.lengthComputable, e.loaded, e.total)
+                  //     }
+                  // }).then(response => {
+                  //     // passing the file id to FilePond
+                  //     // load(response.file)
+                  //       return response.data
+                  // }).then((myJson) => {
+                  //   theURL = this.props.link + myJson.url
+                  //   this.props.setId(myJson.id)
+                  //   this.props.change(theURL)
+                  //   this.props.finishLoading()
+                  //   this.props.setNewId(myJson.newid)
+                  //   this.props.changeValue(1)
             
-                    // this.setState({ uploadbuttonEnable: true })
-                  }).catch((thrown) => {
-                      if (axios.isCancel(thrown)) {
-                          console.log('Request canceled', thrown.message)
-                      } else {
-                          // handle error
-                      }
-                  })
+                  //   // this.setState({ uploadbuttonEnable: true })
+                  // }).catch((thrown) => {
+                  //     if (axios.isCancel(thrown)) {
+                  //         console.log('Request canceled', thrown.message)
+                  //     } else {
+                  //         // handle error
+                  //     }
+                  // })
                   // Setup abort interface
-                  return {
-                      abort: () => {
-                          source.cancel('Operation canceled by the user.')
-                          abort()
-                      }
-                  }
+                  // return {
+                  //     abort: () => {
+                  //         source.cancel('Operation canceled by the user.')
+                  //         abort()
+                  //     }
+                  // }
               }
 
           }

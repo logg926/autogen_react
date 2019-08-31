@@ -16,6 +16,7 @@
     "filepond-plugin-image-preview": "^4.0.3",
     "filepond-plugin-image-resize": "^2.0.2",
     "filepond-plugin-image-transform": "^3.2.2",
+    "jimp": "^0.6.4",
     "jss": "^10.0.0-alpha.3",
     "rc-slider": "^8.6.4",
     "react": "^16.7.0",
